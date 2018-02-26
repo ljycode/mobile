@@ -19,8 +19,31 @@
         <li class="nav-li">sldngn</li>
         <li class="nav-li">sldngn</li>
     </ul>
+
 </div>
+<div class="add">click</div>
+<script src="zepto.tap.min.js"></script>
+<script>
 
+    $(function () {
+        $('.add').tap(function () {
+            $.ajax({
+                type: "get",
+                url: "mock/lot.json?t="+new Date().getTime(),
+                dataType: "json",
+                cache: "false",
+                success: function (data) {
+                    var db=data.goods;
+                    var html='';
+                    for(var i=0,len=db.length;i<len;i++){
+                      html+='<li class="nav-li">'+db[i].name+db[i].price+'</li>'
+                    }
 
+                    $('.nav').append(html)
+                }
+            });
+        })
+    })
+</script>
 </body>
 </html>
