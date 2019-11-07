@@ -22,14 +22,14 @@
 
 </div>
 <div class="add">click</div>
-<script src="zepto.tap.min.js"></script>
+<script src="./zepto.tap.min.js"></script>
 <script>
 
     $(function () {
         $('.add').tap(function () {
             $.ajax({
                 type: "get",
-                url: "mock/lot.json?t="+new Date().getTime(),
+                url: "./mock/lot.json?t="+new Date().getTime(),
                 dataType: "json",
                 cache: "false",
                 success: function (data) {
